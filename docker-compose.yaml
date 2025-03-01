@@ -4,10 +4,10 @@ services:
     container_name: bestbuy_bot
     restart: always
     environment:
-      BESTBUY_URL: "https://www.bestbuy.com/site/lg-ultragear-45-oled-curved-wqhd-240hz-0-03ms-freesync-and-nvidia-g-sync-compatible-gaming-monitor-with-hdr10-black/6530356.p?skuId=6530356"
-      EMAIL_FROM: "alensubasic@gmail.com"
-      EMAIL_TO: "alensubasic@gmail.com"
+      BESTBUY_URL: "https://www.bestbuy.com/YOUR-PRODUCT-URL"
+      EMAIL_FROM: ""
+      EMAIL_TO: ""
       SMTP_SERVER: "smtp.gmail.com"
       SMTP_PORT: "587"
-      EMAIL_PASSWORD: "vstr lket esxl owvb"
+      EMAIL_PASSWORD: ""
       DISPLAY: ":99"

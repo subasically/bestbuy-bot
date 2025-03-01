@@ -25,6 +25,23 @@ SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", 587))
 EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD", "your_email_password")
 
+# Check if all required environment variables are set
+required_env_vars = {
+    "BESTBUY_URL": url,
+    "EMAIL_FROM": EMAIL_FROM,
+    "EMAIL_TO": EMAIL_TO,
+    "SMTP_SERVER": SMTP_SERVER,
+    "SMTP_PORT": SMTP_PORT,
+    "EMAIL_PASSWORD": EMAIL_PASSWORD
+}
+
+missing_vars = [var for var, value in required_env_vars.items() if not value]
+if missing_vars:
+    print(f"Error: Missing required environment variables: {', '.join(missing_vars)}")
+    sys.exit(1)
+
+
+
 # ---------------------------------------------Please Read--------------------------------------------------------------
 
 # Updated: 6/15/2021
@@ -89,7 +106,7 @@ def send_email(subject, body, to_addr, from_addr, smtp_server, smtp_port, passwo
     msg['From'] = from_addr
     msg['To'] = to_addr
     msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'plain'))
+    msg.attach(MIMEText(body, 'html'))
     
     with smtplib.SMTP(smtp_server, smtp_port) as server:
         server.starttls()
