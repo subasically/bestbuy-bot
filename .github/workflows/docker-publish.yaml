@@ -68,7 +68,7 @@ jobs:
         run: |
           echo "Build failed. Check the logs."
 
-      # - name: Trigger Portainer Webhook
-      #   if: success()
-      #   run: |
-      #     curl -X POST https://docker.subasically.me/api/stacks/webhooks/96867fbb-f657-4f45-8da7-53298f3657b6
+      - name: Trigger Portainer Update Webhook
+        if: success()
+        run: |
+          curl -X POST https://docker.subasically.me/api/stacks/webhooks/b2b8f7ca-ed9c-4a91-a26a-07d62db98c1c
